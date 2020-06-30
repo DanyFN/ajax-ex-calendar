@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Calendario di Ivan</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="prev"></div>
+        <div id="mese_corrente" class="mese"></div>
+        <div class="next"></div>
+
+        <ul id="giorni_mese">
+        </ul>
+
+
+        <script id="mese-template" type="text/x-handlebars-template">
+            <h3>{{ month }}</h3>
+        </script>
+
+        <script id="giorno-template" type="text/x-handlebars-template">
+            <li data-date="{{ complete_date }}">
+                <span>{{ date }}</span>
+                <span>{{ name }}</span>
+            </li>
+        </script>
+
+        <script src="script.js"></script>
+    </body>
+</html>
