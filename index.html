@@ -1,33 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Calendario di Ivan</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <div class="prev"></div>
-        <div id="mese_corrente" class="mese"></div>
-        <div class="next"></div>
+<html lang="en">
 
-        <ul id="giorni_mese">
-        </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Moment js -->
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <title>Calendar</title>
+</head>
+
+<body>
+
+  <!-- template clonato -->
+  <div class="container">
+
+      <span class="prev">
+        <== prev</span>
+
+      <h3 data-mese-corrente="" id="mese-corrente"></h3>
+
+      <span class="next">
+        next ==>
+      </span>
+
+      <!-- lista giorni da appendere -->
+      <ul id="lista-giorni">
+
+      </ul>
+
+  </div>
 
 
-        <script id="mese-template" type="text/x-handlebars-template">
-            <h3>{{ month }}</h3>
-        </script>
 
-        <script id="giorno-template" type="text/x-handlebars-template">
-            <li data-date="{{ complete_date }}">
-                <span>{{ date }}</span>
-                <span>{{ name }}</span>
-            </li>
-        </script>
+  <script id="mese-template" type="text/x-handlebars-template">
 
-        <script src="script.js"></script>
-    </body>
+    <h3> {{ month }} </h3>
+
+  </script>
+
+  <!-- template da clonare -->
+  <script id="giorni-template" type="text/x-handlebars-template">
+
+        <!-- template che si va riprodurre  -->
+        <!-- attributo da verificare per le festività -  "data completa" avrà formato uguale ad APIboolean -->
+        <li data-date=" {{ data_completa }} ">
+          <span> {{ date }} </span>
+          <span> {{ name }} </span>
+        </li>
+  </script>
+
+    <!-- Javascript -->
+    <script src="script.js"></script>
+</body>
+
 </html>
